@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Session-Words</title>
+    <style>
+    #wrapper {
+        padding:50px;
+        text-align:center;
+    }
+    #add {
+        display:inline-block;
+        width:40%;
+        border-right:5px solid black;
+    }
+    #clear {
+        height:300px;
+        display:inline-block;
+        width:40%;
+    }
+    input[type='submit'] {
+        width:200px;
+        background-color: blue;
+        color:white;
+        height:40px;
+    }
+    #delete {
+        background-color: red;
+        color:white;
+        vertical-align:top;
+    }
+    p {
+        color:{{request.session.word.color}};
+    }
+    </style>
+</head>
+<body>
+        <div id=wrapper>
+            <div id='add'>
+                <form action='/add_word' method='post'>
+                    {%csrf_token%}
+                    <h2>Add a new word</h2>
+                    <input type='text' name='word'><br><br><br><br>
+                    <label>Choose color</label><br>
+                    <input type='radio' name='color' value='red' checked> Red <br>
+                    <input type='radio' name='color' value='green'> Green <br>
+                    <input type='radio' name='color' value='blue'> Blue <br><br><br>
+                    <input type="hidden" name="font" value='0'>
+                    <input type="checkbox" name="font" value='1'> show in BIG FONTS<br><br><br>
+                    <input type='submit' value='Add to Session'>
+
+                </form>
+            </div>
+            <div id='clear'>
+                    <form action = '/clear' method='post'>
+                        {%csrf_token%}
+                        <input id='delete' type='submit' value='Clear Session'>
+                    </form>
+                    <div>
+                         <!-- style='font-size:{{request.session.font}}' -->
+                        {%for i in request.session.words%}
+                            <p style="color:{{i.color}};font-size:{{i.font}};">{{i.word}}</p>
+                        {% endfor %}
+                        
+                    </div>
+            </div>
+        </div>
+</body>
+</html>

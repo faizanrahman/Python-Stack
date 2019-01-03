@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Account</title>
+    <style>
+    input {
+        display:block;
+    }
+    </style>
+</head>
+<body>
+        <h2>Edit My Account</h2>
+        <form action='/update/{{request.session.userid}}' method='post'>
+            {% csrf_token %}
+            First Name: <input type='text' name='first_name' value='{{first_name}}'>
+            Last Name: <input type='text' name='last_name' value='{{last_name}}'>
+            Email: <input type='text' name='email' value='{{email}}'>
+            <input type='submit' value='Update'>
+        </form>
+
+        <a href="/quotes">Back</a>
+        <a href="/logout">Logout</a>
+</body>
+</html>

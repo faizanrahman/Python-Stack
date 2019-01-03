@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Playground 1</title>
+    <style>
+        h1 {
+            text-align:center
+        }
+        #wrapper {
+            margin:50px;
+            padding:50px;
+            
+        }
+        div.display {
+            display:inline-block;
+            width:220px;
+            height:220px;
+            padding:30px;
+            margin:30px;
+            background-color:#9fc5f8;
+            background-color:{{color}};
+            width:{{width}}px;
+        }
+    </style>
+</head>
+<body>
+<div id = "wrapper">
+        <h1>Welcome</h1>
+        <!-- {%for i in range(50):%}
+            <p>hello</p>
+            {%endfor%} -->
+        <div class="display"></div>
+        <div class="display"></div>
+        <div class="display"></div>
+        {{context|safe}}
+    </div>
+
+</body>
+</html>

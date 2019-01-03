@@ -1,0 +1,18 @@
+What is PIP? PIP Installs Packages
+pip is a package management system used to install and manage software packages written in Python. Many packages can be found in the default source for packages and their dependencies — Python Package Index (PyPI).
+It is included in python by default. (pip3 for python)
+
+pip freeze
+
+Generates output for a requirements file.
+
+pip list
+
+Lists installed packages.
+
+pip freeze > requirements.txt
+
+Generates a requirements file
+
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold</title>
+    <style>
+    #wrapper {
+    padding:20px;
+    }
+    .box {
+        width:22%;
+        margin:10px;
+        display:inline-block;
+        font-weight:bold;
+        text-align:center;
+        border:1px solid black;
+        height:200px;
+        padding-top:20px;
+    }
+    .activity {
+        height:150px;
+        overflow:auto;
+        border:1px solid black;
+        padding-top:20px;
+        margin:10px;
+        width:94.4%;
+    }
+
+    input[type='submit'] {
+        width:100px;
+        font-weight:bold;
+        height:25px;
+    }
+
+    #reset {
+        width:200px;
+        height:50px;
+        color:white;
+        background-color: black;
+        border-radius: 5px;
+        text-align:center;
+        font-weight:bold;
+        font-size:24px;
+        margin-left:450px;
+    }
+    </style>
+</head>
+<body>
+    <div id='wrapper'>
+        <h1>{{num1}}</h1>
+        <h2>Your Gold Total : {{request.session.total}}</h2>
+        <div class="box">Farm
+            <p>(earns 10-20 golds)</p>
+            <form action='/process_money' method='post'>
+                {%csrf_token%}
+                <input type='hidden' name='building' value='farm'>
+                <input type='submit' name='submit'>
+            </form>
+        </div>
+        <div class="box">Cave
+            <p>(earns 5-10 golds)</p>
+            <form action='/process_money' method='post'>
+                {%csrf_token%}
+                <input type='hidden' name='building' value='cave'>
+                <input type='submit' name='submit'>
+            </form>
+        </div>
+        <div class="box">House
+            <p>(earns 2-5 golds)</p>
+            <form action='/process_money' method='post'>
+                {%csrf_token%}
+                <input type='hidden' name='building' value='house'>
+                <input type='submit' name='submit'>
+            </form>
+        </div>
+        <div class="box">Casino
+            <p>(earns/takes 0-50 golds)</p>
+            <form action='/process_money' method='post'>
+                {%csrf_token%}
+                <input type='hidden' name='building' value='casino'>
+                <input type='submit' name='submit'>
+            </form>
+        </div>
+
+        <p>Activities:</p>
+        <div class='activity'>
+            {%for message in request.session.messages%}
+                <p style="color:{{message.color}}">{{message.activity}}</p>
+            {%endfor%}
+        </div>
+        <form action='/process_money' method='post'>
+            {%csrf_token%}
+            <input type='hidden' name = 'building' value='reset'/>
+            <input type='submit' id='reset' value='Reset'/>
+        </form>
+    </div>
+</body>
+</html>

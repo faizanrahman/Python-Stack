@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Wish</title>
+    <style>
+    .logout {
+        padding:10px 60px;
+        /* margin-top:50px; */
+        height:40px;
+        font-weight:bold;
+        background-color: red;
+        color:white;
+        border-radius:15px;
+    }
+
+    fieldset {
+        display:inline-block;
+        width:500px;
+    }
+    
+    input {
+        display:block;
+    }
+    input[type='submit'] {
+        display:inline-block;
+    }
+    </style>
+</head>
+<body>
+    <h4>Hello, <span><h4>{{request.session.name}}!</h4></span>Let's edit your wish</h4>
+    <a href='/logout' class='logout'>Logout</a>
+        {% for message in messages %}
+
+            <p>{{ message }}</p>
+
+        {%endfor%}
+    
+    
+    <fieldset>
+        
+        
+        
+        <form action='/update/{{id}}' method='post'>
+            {% csrf_token %}
+            I wish for: <input type='text' name='item' value='{{item}}'>
+            Description:<input type='text' name='desc' value='{{description}}'>
+                        <a href='/wishes'><button>Cancel</button></a>
+                        <input type='submit' value='Edit'>
+        </form>
+    
+    
+    
+        </fieldset>
+    
+</body>
+</html>

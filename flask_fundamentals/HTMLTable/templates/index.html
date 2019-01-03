@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML Table</title>
+    <style>
+        table {
+            text-align:center;
+
+        }
+        tr {
+            height:50px;
+            border:1px solid black;
+        }
+
+        td {
+            border:1px solid black;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Full Name</td>
+        </tr>
+        {% for i in range(x) %}
+        
+        
+       <tr>
+            
+                <td>{{users[i].first_name}}</td>
+                <td>{{users[i].last_name}}</td>
+                <td>{{users[i].first_name}} {{users[i].last_name}}</td>
+                
+        </tr>
+    
+    
+    {%endfor%}
+
+    <!-- {% for student in students %}                           for user in users
+    <h1>Student Name: {{ student['name'] }} </h1>                <h1  
+    <p>Student Age: {{ student['age'] }} </p>
+    {% endfor %} -->                                                
+    <!-- {{users[0].first_name|safe}} -->
+
+
+    </table>
+</body>
+</html>

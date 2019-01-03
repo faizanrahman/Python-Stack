@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes Main Page</title>
+    <style>
+        body {
+            margin-top:50px;
+            text-align:center;
+        }
+        span {
+            color:green;
+        }
+        h4 {
+            margin-bottom:50px;
+        }
+        a {
+            /* padding:10px 20px; */
+            /* margin-top:50px; */
+            height:40px;
+            font-weight:bold;
+            background-color: red;
+            color:white;
+            border-radius:15px;
+        }
+        
+        .quotes {
+            display:block;
+        }
+
+        .submit-quote {
+            display:inline-block;
+        }
+
+        input {
+            display:block;
+        }
+        .quote {
+            border:1px solid black;
+            width:80%;
+            align-items:center;
+        }
+        .quotes, .submit-quote{
+            display: inline-block;
+            vertical-align: top;
+            width: 40%;
+        }
+        
+    </style>
+</head>
+<body>
+        <h4>Welcome, <span>{{request.session.name}}</span></h4>
+        <a href='/logout'>Logout</a>
+        <a href='/edit/{{request.session.userid}}'>Edit My Account</a>
+        <div class='quotes'>
+                <h4>All Quotes from all Users</h4>
+                {%for quote in quotes%}
+                    <div class='quote'>
+    
+                        <p>{{quote.quote_text}}</p>
+                        <p>{{quote.author}}</p>
+                        <p>Posted by<a href='/user/{{quote.uploader.id}}'> {{quote.uploader.first_name}}</a></p>
+                        <p>{{counter}} people like this<a href='/likes/{{quote.id}}'>Like</a></p>
+                        {%if quote.uploader.id == request.session.userid%}
+                            <a href='/delete/{{quote.id}}'>Delete</a>
+                        {% endif %}
+                    </div>    
+                {% endfor %}
+            
+            
+        </div>
+
+        <div class='submit-quote'>
+                <div class='flash'>
+                        {% for message in messages %}
+                
+                        <div class="alert alert-danger">
+                
+                            <p>{{ message }}</p>
+                
+                        </div>
+                        {%endfor%}
+            <h4>Add a Quote</h4>
+            <form action='/add_quote' method='post'>
+                {% csrf_token %}
+                Author : <input type='text' name='author'>
+                Quote :  <input type='text' name='user_quote'>
+                <input type='submit'>
+            </form>
+        </div>
+        
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Guessing Game</title>
+    <style>
+        .flash {
+            width:200px;
+            height:200px;
+            color:white;
+            text-align:center;
+            line-height:200px;
+            font-size:20px;
+            font-weight:bold;
+            font-family:sans-serif;
+            background-color: red;
+            background-color:{{color|safe}}
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Welcome to the great Number Game</h1>
+    <h2>I am thinking of a number between 1 and 100</h2>
+
+    <h3>Take a guess!</h3>
+
+    <div class='flash'>
+        <p>{{message|safe}}</p>
+    </div>
+    <form action='/guess' method="post">
+        <input type='text' name='user-guess'/>
+        <input type='submit' name='submit'/>
+    </form>
+</body>
+</html>

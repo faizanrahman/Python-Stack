@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Word</title>
+    <style>
+        body {
+            text-align:center;
+            padding:100px;
+        }
+        div {
+            border:2px solid black;
+            width:50%;
+            margin-left:250px;
+        }
+        input[type='submit'] {
+            width: 200px;
+            height:50px;
+            margin-top:20px;
+            border-radius:5px;
+            background-color: black;
+            color:white;
+            font-weight:bold;
+
+        }
+    
+    </style>
+</head>
+<body>
+        
+        <h1>Random Word Generator</h1>
+        <p>Attempt # {{request.session.counter}}</p>
+        <div>
+            <h2>{{unique_id}}</h2>
+        </div>
+        <form action='/random_word' method='post'>
+            {% csrf_token %}
+        <input type = 'submit' value = 'Generate'>
+        
+        </form>
+        <form action='/random_word/reset' method='post'>
+            {% csrf_token %}
+        <input type = 'submit' value = 'Reset'>
+        
+        </form>
+</body>
+</html>

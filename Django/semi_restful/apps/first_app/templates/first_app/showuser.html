@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show User</title>
+</head>
+<body>
+        <table>
+            <h1>User {{id}}</h1>
+            <tr>
+                <td> Full Name </td>
+                <td>{{users.first_name}} {{users.last_name}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{users.email}}</td>
+            </tr>
+            <tr>
+                <td> Created at </td>
+                <td>today</td>
+            </tr>
+            
+            <input type='submit' name='edit' value='edit'>
+            <input type='submit' name='delete' value='delete'>
+
+
+
+        </table>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Fruit Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        #nav {
+            background-color:black;
+            color:white;
+        }
+        .jumbotron {
+            margin-bottom:50px;
+        }
+        #buy {
+            width:200px;
+            margin-left:475px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <ul id="nav" class="nav justify-content-center">
+            <li class="nav-item">
+                <h1>Dojo Fruit Store</h1>
+            </li>
+        </ul>
+        <div class="jumbotron text-center">
+            <h1 class="display-4 font-weight-light">Dojo Fruit Store</h1>
+            <p class="lead font-weight-bold">Your Dojo decided to buy all the fruits for you.Please use this application to tell us what you would like to have. Once we get your order, we'll charge your student account automatically.
+            </p>
+            <p class="lead font-weight-bold"> Dojo Fruit Store is proudly built in Flask, a micro-framework using the Python programming language. </p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Order Now!</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Information about fruits</a>
+        </div>
+        <div class="container album py-5 bg-light text-center">
+            <form action='/checkout' method='post'>
+                <h3 class="text-center">What would you like to buy?</h3>
+                <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Fruit Name</th>
+                            <th scope="col">Quantity</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Strawberries</td>
+                            <td><select name='strawberries'>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Bananas</td>
+                            <td><select name='bananas'>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select></td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Apples</td>
+                            <td><select name='apples'>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select></td>
+                         
+                          </tr>
+                          <tr>
+                                <th scope="row">4</th>
+                                <td>Mangoes</td>
+                                <td><select name='mangoes'>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select></td>
+                             
+                              </tr>
+                        </tbody>
+                      </table>
+
+                      <h5>Available fruit options will change based on availability.</h5>
+                <div class='row'>
+                        <div class="col-md-4 mb-3">
+                            <label for="firstName">First name</label>
+                            <input type="text" class="form-control" name="first_name" placeholder="" value="">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="lastName">Last name</label>
+                            <input type="text" class="form-control" name="last_name" placeholder="" value="">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="email">Your Student ID <span class="text-muted">(Optional)</span></label>
+                            <input type="text" class="form-control" name="student_id" placeholder="123-456-7890">
+                        </div>
+                        <button id="buy" class="btn btn-primary btn-lg" type="submit">Checkout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

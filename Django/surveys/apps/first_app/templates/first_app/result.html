@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Result</title>
+    <style>
+    #wrapper {
+        margin:20px auto;
+        padding:50px;
+    }
+    table {
+        width:500px;
+        border:3px solid black;
+    }
+    td {
+        border:1px solid black;
+    }
+    button{
+            width:150px;
+            height:50px;
+            background-color: black;
+            color:white;
+            font-weight:bold;
+            font-size:20px;
+        }
+    a {
+        color:white;
+    }
+
+    #count {
+        background-color: lightgreen;
+        height: 25px;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+    <div id="result">
+        <div id=count>
+            <h4>You have submitted this form {{request.session.count}} times.</h4>
+        </div>
+    <h1>The form was submitted successfully</h1>
+    <h2>Submitted Info</h2>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>{{request.session.name}}</td>
+        </tr>
+        <tr>
+                <td>Email:</td>
+                <td>{{request.session.email}}</td>
+            </tr>
+        <tr>
+            <td>Dojo Location:</td>
+            <td>{{request.session.location}}</td>
+        </tr>
+        <tr>
+            <td>Favorite Language:</td>
+            <td>{{request.session.language}}</td>
+        </tr>
+        <tr>
+            <td>Comments:</td>
+            <td>{{request.session.comments}}</td>
+        </tr>
+        
+    </table>
+    <br><br><br><br><br>
+    <button type="submit"><a href='/'>Go back</a></button>
+</div>
+</div>
+</body>
+</html>
